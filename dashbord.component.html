@@ -1,0 +1,60 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-4 mt-5">
+            <div class="card border-0 shadow p-3">
+                <div class="form-floating mb-3 text-center">
+                    <h5 class="text-center text-warning">Add Employee</h5>
+                   
+                </div>
+                
+                    <div class="form-floating mb-3">
+    
+                        <mat-form-field class="example-full-width" appearance="fill" >
+                            <mat-label> Email:</mat-label>
+                            <input type="email" matInput placeholder="email" name="email" [(ngModel)]="email">
+                          </mat-form-field>
+                        
+                          
+                    </div>
+                    <div class="form-floating mb-3">
+                        <mat-form-field class="example-full-width" appearance="fill">
+                            <mat-label>Name:</mat-label>
+                            <input matInput placeholder="name" name="name" [(ngModel)]="name">
+                          </mat-form-field>
+                    </div>
+                    <button type="button" class="btn btn-outline-success" (click)="addEmployees()">Add Employee</button>
+            </div>
+        </div>
+        <div class="col-md-8 mt-2">
+            <h5 class="text-danger"> Employee List</h5>
+            <div class="card p-3 shadow">
+                <div class="card-body">
+                    <table class="table table-hover">
+                        <thead>
+                          <tr>
+                          <th >Name</th>
+                            <th>Email</th>
+                            <th >Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let employee of EmployeesList">
+                            
+                             <td>{{employee.name}}</td>
+                            <td>{{employee.email}}</td>
+                            <td >
+                               <i class="material-icons" style="color:green;cursor: pointer;font-size:30px; " (click)="updateEmployees(employee)">edit
+                                    </i>
+                        
+                                <i class="material-icons" style="color:red;cursor: pointer;font-size:30px; " (click)="deleteEmployees(employee)">delete</i>
+                              </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
